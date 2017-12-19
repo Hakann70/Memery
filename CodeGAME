@@ -1,0 +1,89 @@
+import pygame, sys
+
+pygame.init()
+
+scale_x = 70
+scale_y = 100
+
+pepe_1 = pygame.transform.scale( pygame.image.load("assets/pepe 1.jpg"), (scale_x, scale_y))
+pepe_2 = pygame.transform.scale( pygame.image.load("assets/pepe 2.jpg"), (scale_x, scale_y))
+pepe_3 = pygame.transform.scale( pygame.image.load("assets/pepe 3.png"), (scale_x, scale_y))
+pepe_4 = pygame.transform.scale( pygame.image.load("assets/pepe 4.png"), (scale_x, scale_y))
+pepe_5 = pygame.transform.scale( pygame.image.load("assets/pepe 5.jpg"), (scale_x, scale_y))
+pepe_6 = pygame.transform.scale( pygame.image.load("assets/pepe 6.png"), (scale_x, scale_y))
+pepe_7 = pygame.transform.scale( pygame.image.load("assets/pepe 7.png"), (scale_x, scale_y))
+pepe_8 = pygame.transform.scale( pygame.image.load("assets/pepe 8.jpg"), (scale_x, scale_y))
+pepe_leeg = pygame.transform.scale( pygame.image.load("assets/pepe leeg.png"), (scale_x, scale_y))
+
+
+kaartPosities = [[pepe_1, pepe_4, pepe_3, pepe_1],
+                 [pepe_2, pepe_7, pepe_3, pepe_8],
+                 [pepe_8, pepe_4, pepe_2, pepe_7],
+                 [pepe_6, pepe_5, pepe_5, pepe_6]]
+
+def create_window():
+    global window, window_height, window_width, window_title
+    window_width, window_height = 800, 600
+    window_title = "Memory"
+    pygame.display.set_caption(window_title)
+    window = pygame.display.set_mode((window_width, window_height), pygame.HWSURFACE|pygame.DOUBLEBUF)
+
+create_window()
+
+state = 7;
+
+tijdBeginMinigame = 0
+
+isRunning = True
+
+vaporwave = pygame.transform.scale(pygame.image.load("assets/vaporwave.jpg"), (
+            isRunning = False
+        pygame.display.update()window_width,window_height))
+window.blit(vaporwave, (0,0))
+while isRunning:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+    if state == 7:
+        tijdBeginMinigame = pygame.time.get_ticks()
+        window.blit(pepe_1, (50, 100))
+        window.blit(pepe_2, (150, 100))
+        window.blit(pepe_3, (250, 100))
+        window.blit(pepe_4, (350, 100))
+        window.blit(pepe_5, (50,220))
+        window.blit(pepe_6, (50,340))
+        window.blit(pepe_7, (50,460))
+        window.blit(pepe_8, (150,220))
+        window.blit(pepe_1, (150,340))
+        window.blit(pepe_2, (150,460))
+        window.blit(pepe_3, (250,220))
+        window.blit(pepe_4, (250,340))
+        window.blit(pepe_5, (250,460))
+        window.blit(pepe_6, (350,220))
+        window.blit(pepe_7, (350,340))
+        window.blit(pepe_8, (350,460))
+        state = 8
+    if state == 8:
+        print(pygame.time.get_ticks() > tijdBeginMinigame + 3000)
+        if pygame.time.get_ticks() > tijdBeginMinigame + 3000:
+            window.blit(pepe_leeg, (50, 100))
+            window.blit(pepe_leeg, (150, 100))
+            window.blit(pepe_leeg, (250, 100))
+            window.blit(pepe_leeg, (350, 100))
+            window.blit(pepe_leeg, (50,220))
+            window.blit(pepe_leeg, (50,340))
+            window.blit(pepe_leeg, (50,460))
+            window.blit(pepe_leeg, (150,220))
+            window.blit(pepe_leeg, (150,340))
+            window.blit(pepe_leeg, (150,460))
+            window.blit(pepe_leeg, (250,220))
+            window.blit(pepe_leeg, (250,340))
+            window.blit(pepe_leeg, (250,460))
+            window.blit(pepe_leeg, (350,220))
+            window.blit(pepe_leeg, (350,340))
+            window.blit(pepe_leeg, (350,460))
+
+pygame.draw.rect(window, green,(150,450,100,50))
+
+
+pygame.quit()
+sys.exit()
